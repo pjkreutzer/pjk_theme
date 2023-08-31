@@ -1,0 +1,471 @@
+/*-- scss:defaults --*/
+
+// fonts
+
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700');
+
+$font-family-sans-serif: "Atkinson Hyperlegible", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace : "Ubunto Mono",
+monospace !default;
+
+$font-weight-bold: 800;
+$font-weight-normal: 400;
+
+
+$white: hsla(0, 0%, 100%, 1);
+$gray-100: hsl(210, 17%, 98%) !default;
+$gray-200: hsl(210, 16%, 93%) !default;
+$gray-300: hsl(0, 0%, 87%) !default;
+$gray-400: hsl(210, 14%, 83%) !default;
+$gray-500: hsl(210, 11%, 71%) !default;
+$gray-600: hsl(210, 7%, 56%) !default;
+$gray-700: hsl(210, 9%, 31%) !default;
+$gray-800: hsl(210, 10%, 23%) !default;
+$gray-900: hsl(210, 11%, 15%) !default;
+$black: hsl(0, 0%, 0%) !default;
+
+$theme-colors: (
+  "white": hsl(0, 0%, 100%),
+  "light": hsl(219, 49%, 91%),
+  "default": hsl(210, 11%, 71%),
+  "dark": hsl(227, 100%, 3%),
+  "primary": hsl(227, 71%, 55%),
+  "secondary": hsl(225, 95%, 63%),
+  "info": hsl(221, 96%, 70%),
+  "accent1": hsl(227, 89%, 22%),
+  "accent2": hsl(226, 61%, 48%),
+  "accent3": hsl(218, 78%, 77%),
+  "success": hsl(152, 37%, 46%),
+  "warning": hsl(36, 54%, 51%),
+  "danger": hsl(4, 90%, 58%),
+
+  "gray-100": hsl(210, 17%, 98%),
+  "gray-200": hsl(210, 16%, 93%),
+  "gray-300": hsl(0, 0%, 87%),
+  "gray-400": hsl(210, 14%, 83%),
+  "gray-500": hsl(210, 11%, 71%),
+  "gray-600": hsl(210, 7%, 56%),
+  "gray-700": hsl(210, 9%, 31%),
+  "gray-800": hsl(210, 10%, 23%),
+  "gray-900": hsl(210, 11%, 15%),
+);
+
+$color-names: map-keys($theme-colors);
+
+$light: map-get($theme-colors, "light");
+$dark: map-get($theme-colors, "dark");
+$primary: map-get($theme-colors, "primary");
+$secondary: map-get($theme-colors, "secondary");
+$info: map-get($theme-colors, "info");
+$accent1: map-get($theme-colors, "accent1");
+$accent2: map-get($theme-colors, "accent2");
+$accent3: map-get($theme-colors, "accent3");
+$success: map-get($theme-colors, "success");
+$warning: map-get($theme-colors, "warning");
+$danger: map-get($theme-colors, "danger");
+
+$light-accent : $accent3;
+$medium-accent: $accent2;
+$dark-accent : $accent1;
+$default: $gray-500;
+
+$dark-background: $dark-accent;
+$light-background: $light;
+$white-background: $white;
+
+$link-color : $light !default;
+// Default values for callout colors
+$callout-color-note: $primary !default;
+$callout-color-tip: $success !default;
+$callout-color-important: $danger !default;
+$callout-color-warning: $warning !default;
+
+
+// breakpoints
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+
+/*-- scss:rules --*/
+
+
+// colors
+
+@each $color-name in $color-names {
+  .text-#{$color-name} {
+    color: map-get($theme-colors, $color-name);
+  }
+
+  .bg-#{$color-name} {
+    background-color: map-get($theme-colors, $color-name);
+  }
+}
+
+// acceptable rem values with 1 rem = 16 px
+// 0.25, 0.5, 0.75, 1, 1.5, 2, 4, 6, 8, 12, 16, 24, 32, 40, 48
+
+body {
+  font-family: $font-family-sans-serif;
+  color: $dark;
+}
+
+p {
+  font-family: inherit;
+  line-height: calc(150% + (0.0025vw * (100 - 30)));
+  /* calculate line height */
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family-sans-serif;
+  font-weight: 400;
+  color: inherit, $dark;
+  border-bottom: none;
+}
+
+a {
+  color: $primary !important; // hack to set menu link color to light and then overide for a tags
+  text-decoration: none;
+  padding-right: 0.1em;
+  padding-left: 0.1em;
+
+  &:hover {
+    background-color: $light;
+  }
+}
+
+
+.date {
+  color: $default;
+}
+
+.font-normal {
+  font-weight: $font-weight-normal;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+// callouts
+
+// $callout-color-definition: $secondary !default;
+// $callout-color-reading: $info !default;
+
+
+// // Generate per callout type css to customize their appearance
+// // Define the callouts for which we should define styles
+// $callouts: (
+//   // definition
+//   "definition":
+//     (
+//       "color": $callout-color-definition,
+//       "icon":
+//       '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal-check" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M10.854 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708 0z"/><path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/><path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/></svg>',
+//     ),
+//   // Reading Question
+//   "reading":
+//     (
+//       "color": $callout-color-reading,
+//       "icon": '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16"><path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/></svg>'
+//     )
+// );
+
+// @each $name, $info in $callouts {
+
+//   div.callout-#{$name}.callout {
+//     border-left-color: shift-color(
+//       quarto-map.get($info, "color"),
+//       $callout-border-scale
+//     );
+//   }
+
+//   div.callout-#{$name}.callout-style-default > .callout-header {
+//     @if (quarto-color.blackness($body-bg) > $code-block-theme-dark-threshhold) {
+//       background-color: shift-color(quarto-map.get($info, "color"), 70%);
+//     } @else {
+//       background-color: shift-color(quarto-map.get($info, "color"), -90%);
+//     }
+//   }
+
+//   $shifted-color: #{shift-color(
+//       quarto-map.get($info, "color"),
+//       $callout-icon-scale
+//     )};
+//   $shifted-color-svg: str-replace($shifted-color, "#", "%23");
+
+//   div.callout-#{$name}:not(.callout-titled) .callout-icon::before {
+//     background-image: #{"url('data:image/svg+xml," +
+//       str-replace(
+//         quarto-map.get($info, "icon"),
+//         'fill="currentColor"',
+//         'style="fill: #{$shifted-color-svg}"'
+//       ) +
+//       "');"};
+//   }
+
+//   div.callout-#{$name}.callout-titled .callout-icon::before {
+//     background-image: #{"url('data:image/svg+xml," +
+//       str-replace(
+//         quarto-map.get($info, "icon"),
+//         'fill="currentColor"',
+//         'style="fill: #{$shifted-color-svg}"'
+//       ) +
+//       "');"};
+//   }
+
+//   div.callout-#{$name} .callout-toggle::before {
+//     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#{colorToRGB($body-color)}" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');
+//   }
+// }
+
+// sidebars
+
+
+.margin-sidebar,
+.toc-active .header-section-number {
+  color: $gray-400;
+}
+
+
+@media (min-width: 992px) {
+
+  .sidebar-menu-container a,
+  .sidebar-item-container .chapter-number {
+    color: $gray-400;
+  }
+}
+
+// buttons
+
+.btn {
+  border-radius: 5px;
+}
+
+// responsive iframe
+.container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 5%;
+}
+
+.responsive-iframe {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 500px;
+}
+
+.quarto-title-meta-heading {
+  color: $default;
+}
+
+
+
+// revealjs
+.reveal {
+  & .title-box {
+    position: absolute;
+    right: 480px;
+    top: 200px;
+    height: 550px;
+    width: 1500px;
+    background-color: $light-accent;
+    padding: 20px;
+    padding-left: 50px;
+    box-shadow: -15px 15px 0px 0px $dark-accent;
+    border-radius: 5px;
+  }
+
+  // boxes of Tom Mock Quarto presenation
+
+  & .title-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: $medium-accent;
+  }
+
+  & .quarto-title-block {
+    text-align: left;
+
+    & .quarto-title-authors {
+      color: $dark-accent;
+      display: flex;
+      justify-content: flex-end;
+      text-align: right;
+    }
+
+    .date {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 1.5rem;
+      text-align: right;
+      padding-right: 0.5em;
+    }
+
+    // & .title-institution{
+    //   font-size: 1.5rem;
+    //   font-weight: 400;
+    //   color: $dark;
+    // }
+
+    // & .title-place{
+    //   font-size: 1.5rem;
+    //   font-weight: 400;
+    //   color: $dark;
+    // }
+
+    & .title-social {
+      font-family: $font-family-monospace;
+      color: $light-accent;
+    }
+
+    & .inverted {
+      color: $light;
+      background-color: $dark;
+
+      & h1 {
+        text-transform: lowercase;
+      }
+    }
+
+    & .has-dark-background {
+      color: $white;
+      background-color: $dark-background;
+
+      & h1,
+      & h2,
+      & h3,
+      & h4 {
+        color: $light;
+      }
+    }
+  }
+
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    font-family: $font-family-sans-serif;
+    font-weight: $font-weight-bold;
+    text-transform: lowercase;
+    color: $dark;
+
+    &.title {
+      font-size: 6rem;
+      font-weight: $font-weight-bold;
+      color: $primary;
+      text-transform: uppercase;
+      text-align: left;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  & blockquote {
+    border-left: none;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="hsl(219, 49%, 91%)" class="bi bi-quote" viewBox="0 0 16 16"><path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 9 7.558V11a1 1 0 0 0 1 1h2Zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612c0-.351.021-.703.062-1.054.062-.372.166-.703.31-.992.145-.29.331-.517.559-.683.227-.186.516-.279.868-.279V3c-.579 0-1.085.124-1.52.372a3.322 3.322 0 0 0-1.085.992 4.92 4.92 0 0 0-.62 1.458A7.712 7.712 0 0 0 3 7.558V11a1 1 0 0 0 1 1h2Z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 6rem;
+    // give the text a very slight white blur to make it look like it's on paper
+    text-shadow: 0 0 2px white;
+    -webkit-backdrop-filter: blur(5px);
+    /* Use for Safari 9+, Edge 17+ (not a mistake) and iOS Safari 9.2+ */
+    backdrop-filter: blur(5px);
+    /* Supported in Chrome 76 */
+
+  }
+
+  & .right {
+    text-align: right;
+  }
+
+  & .text-emphasis {
+    font-weight: $font-weight-bold;
+    color: $primary;
+  }
+
+  & .slides section .fragment.highlight-current-blue.current-fragment {
+    color: $primary;
+  }
+
+  & .slide-menu-button a {
+    color: $light;
+  }
+
+  & .progress span {
+    background-color: $accent3;
+  }
+
+  & .slide-cite {
+    color: $default;
+    font-size: 1rem;
+    position: absolute;
+    display: block;
+    margin-top: 5px;
+    text-align: right;
+    bottom: 0;
+    right: 0;
+  }
+
+  & img {
+    border-radius: 10px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    justify-content: center;
+  }
+
+  & table th,
+  & table td {
+    text-align: left;
+    padding: .2em .5em .2em .5em;
+    border-bottom: 1px solid;
+    border-color: $light;
+  }
+
+  // responsive iframe
+  .container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 5%;
+  }
+
+  .responsive-iframe {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+  }
+}
+
+
+// extras
+
+.empty {
+  color: inherit;
+  -webkit-text-stroke: 2px;
+  text-stroke: 2px;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
