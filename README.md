@@ -1,23 +1,16 @@
-# <%= title %> Format
+# Personal Theme for revealjs Presentations in Quarto
 
 ## Installing
 
-*TODO*: Replace the `<github-organization>` with your GitHub organization.
 
 ```bash
-quarto use template <github-organization>/<%= filesafename %>
+quarto use template pjkreutzer/pjk_theme_revealjs
 ```
 
-This will install the extension and create an example qmd file that you can use as a starting place for your article.
+This will install the extension and create a template for a presentation.
 
-## Using
+To use the template with an existing presentation use
 
-*TODO*: Describe how to use your format.
-
-## Format Options
-
-*TODO*: If your format has options that can be set via document metadata, describe them.
-
-## Example
-
-Here is the source code for a minimal sample document: [example.qmd](example.qmd).
+```bash
+quarto install extension pjkreutzer/pjk_theme_revealjs
+```

@@ -2,7 +2,7 @@
 title: Untitled
 format:
   pjk_theme_revealjs-revealjs: default
-author: Philipp Jonas Kreutzer
+author: Jonas Kreutzer
 date: last-modified
 ---
 
@@ -14,3 +14,6 @@ date: last-modified
 
 You can learn more about controlling the appearance of RevealJS output here: <https://quarto.org/docs/presentations/revealjs/>
 
+# Alerts
+
+[Alert]{.text-emphasis}
