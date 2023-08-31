@@ -14,3 +14,13 @@ To use the template with an existing presentation use
 ```bash
 quarto install extension pjkreutzer/pjk_theme_revealjs
 ```
+
+<!-- ## Using
+
+
+```bash
+format:
+  pjk_theme_revealjs:
+    attribution: true
+```
+ -->
