@@ -14,7 +14,9 @@ date: last-modified
 
 You can learn more about controlling the appearance of RevealJS output here: <https://quarto.org/docs/presentations/revealjs/>
 
-# Inverted Title {.has-dark-background} 
+# Dark BG Title {.has-dark-background} 
+
+# Inverted {.inverted}
 
 ## Alerts
 

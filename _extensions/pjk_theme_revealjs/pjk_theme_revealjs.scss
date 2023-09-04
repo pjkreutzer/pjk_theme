@@ -170,7 +170,7 @@ a {
 
   & .inverted {
     color: $light;
-    background-color: $dark;
+    background-color: $dark-accent;
 
     & h1 {
       text-transform: lowercase;
@@ -179,7 +179,7 @@ a {
 
   & .has-dark-background {
     color: $white;
-    background-color: $dark-background;
+    background-color: $dark-accent;
 
     & h1,
     & h2,
