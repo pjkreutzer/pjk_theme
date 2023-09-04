@@ -2,10 +2,10 @@
 
 // fonts
 
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 $font-family-sans-serif: "Atkinson Hyperlegible", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-$font-family-monospace : "Ubunto Mono",
+$font-family-monospace : "Space Mono",
 monospace !default;
 
 $font-weight-bold: 800;
@@ -369,6 +369,7 @@ a {
     font-weight: $font-weight-bold;
     text-transform: lowercase;
     color: inherit;
+    align-self: flex-start;
 
     &.title {
       font-size: 6rem;
@@ -458,7 +459,6 @@ a {
     height: 500px;
   }
 }
-
 
 // extras
 

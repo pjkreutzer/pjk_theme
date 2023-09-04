@@ -14,6 +14,26 @@ date: last-modified
 
 You can learn more about controlling the appearance of RevealJS output here: <https://quarto.org/docs/presentations/revealjs/>
 
-# Alerts
+## Alerts
 
 [Alert]{.text-emphasis}
+
+## `Some header`
+
+some text
+
+`some mono text`
+
+Megatypos
+
+`Megatypos`
+
+
+an example with code, even if I never use it 
+
+```python
+
+def some_func(x):
+  return x
+
+```
