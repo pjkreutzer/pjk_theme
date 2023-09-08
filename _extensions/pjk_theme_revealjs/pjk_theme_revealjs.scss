@@ -108,7 +108,7 @@ h4,
 h5,
 h6 {
   font-family: $font-family-sans-serif;
-  font-weight: 400;
+  font-weight: $font-weight-normal;
   color: inherit;
   border-bottom: none;
 }
@@ -245,9 +245,12 @@ a {
     align-self: flex-start;
 
     &.title {
+      background-color: $primary;
+      box-shadow: 5px 5px 0px $dark-accent;
+      padding: 1rem;
       font-size: 6rem;
       font-weight: $font-weight-bold;
-      color: $primary;
+      color: $white;
       text-transform: uppercase;
       text-align: left;
       letter-spacing: 0.05em;
