@@ -10,29 +10,19 @@ $font-weight-bold: 800;
 $font-weight-normal: 400;
 
 // Colors
-$white: hsla(0, 0%, 100%, 1);
-$gray-100: hsl(210, 17%, 98%) !default;
-$gray-200: hsl(210, 16%, 93%) !default;
-$gray-300: hsl(0, 0%, 87%) !default;
-$gray-400: hsl(210, 14%, 83%) !default;
-$gray-500: hsl(210, 11%, 71%) !default;
-$gray-600: hsl(210, 7%, 56%) !default;
-$gray-700: hsl(210, 9%, 31%) !default;
-$gray-800: hsl(210, 10%, 23%) !default;
-$gray-900: hsl(210, 11%, 15%) !default;
-$black: hsl(0, 0%, 0%) !default;
-
 $theme-colors: (
   "white": hsl(0, 0%, 100%),
-  "light": hsl(219, 49%, 91%),
-  "default": hsl(210, 11%, 71%),
-  "dark": hsl(227, 100%, 3%),
-  "primary": hsl(227, 71%, 55%),
-  "secondary": hsl(225, 95%, 63%),
-  "info": hsl(221, 96%, 70%),
-  "accent1": hsl(227, 89%, 22%),
-  "accent2": hsl(226, 61%, 48%),
-  "accent3": hsl(218, 78%, 77%),
+  "royal-blue-50": hsl(219, 88%, 97%),
+  "royal-blue-100": hsl(221, 78%, 93%),
+  "royal-blue-200": hsl(218, 82%, 87%),
+  "royal-blue-300": hsl(218, 82%, 78%),
+  "royal-blue-400": hsl(219, 80%, 68%),
+  "royal-blue-500": hsl(223, 78%, 60%),
+  "royal-blue-600": hsl(227, 71%, 55%),
+  "royal-blue-700": hsl(231, 65%, 48%),
+  "royal-blue-800": hsl(231, 61%, 40%),
+  "royal-blue-900": hsl(230, 55%, 33%),
+  "royal-blue-950": hsl(232, 50%, 21%),
   "success": hsl(152, 37%, 46%),
   "warning": hsl(36, 54%, 51%),
   "danger": hsl(4, 90%, 58%),
@@ -49,33 +39,38 @@ $theme-colors: (
 
 $color-names: map-keys($theme-colors);
 
-$light: map-get($theme-colors, "light");
-$dark: map-get($theme-colors, "dark");
-$primary: map-get($theme-colors, "primary");
-$secondary: map-get($theme-colors, "secondary");
+$white: map-get($theme-colors, "white");
+$light: map-get($theme-colors, "royal-blue-100");
+$dark: map-get($theme-colors, "royal-blue-950");
+$primary: map-get($theme-colors, "royal-blue-400");
+$secondary: map-get($theme-colors, "royal-blue-600");
 $info: map-get($theme-colors, "info");
-$accent1: map-get($theme-colors, "accent1");
-$accent2: map-get($theme-colors, "accent2");
-$accent3: map-get($theme-colors, "accent3");
 $success: map-get($theme-colors, "success");
 $warning: map-get($theme-colors, "warning");
 $danger: map-get($theme-colors, "danger");
-
-$light-accent : $accent3;
-$medium-accent: $accent2;
-$dark-accent : $accent1;
-$default: $gray-500;
+$light-accent : map-get($theme-colors, "royal-blue-200");
+$medium-accent: map-get($theme-colors, "royal-blue-500");
+$dark-accent : map-get($theme-colors, "royal-blue-800");
+$default: map-get($theme-colors, "gray-500");
 
 $dark-background: $dark-accent;
 $light-background: $light;
 $white-background: $white;
 
 $link-color : $light !default;
+$code-color : black !default;
+$selection-color: $secondary !default;
 // Default values for callout colors
 $callout-color-note: $primary !default;
 $callout-color-tip: $success !default;
 $callout-color-important: $danger !default;
 $callout-color-warning: $warning !default;
+
+@each $color-name, $color-value in $theme-colors {
+  .text-#{$color-name} {
+    color: $color-value;
+  }
+}
 
 // Breakpoints
 $grid-breakpoints: (
@@ -101,6 +96,7 @@ p {
   line-height: calc(150% + (0.0025vw * (100 - 30)));
 }
 
+
 h1,
 h2,
 h3,
@@ -121,6 +117,7 @@ a {
 
   &:hover {
     font-weight: $font-weight-bold;
+    color: $primary !important;
   }
 }
 
@@ -204,7 +201,7 @@ a {
 
   & .title-subtitle {
     font-size: 1.5rem;
-    font-weight: 400;
+    font-weight: $font-weight-bold;
     color: $medium-accent;
   }
 
@@ -240,9 +237,7 @@ a {
   & h6 {
     font-family: $font-family-sans-serif;
     font-weight: $font-weight-bold;
-    text-transform: lowercase;
-    color: inherit;
-    align-self: flex-start;
+    align-self: flex-end;
 
     &.title {
       background-color: $primary;
@@ -286,7 +281,7 @@ a {
   }
 
   & .progress span {
-    background-color: $accent3;
+    background-color: $light-accent;
   }
 
   & .slide-cite {
