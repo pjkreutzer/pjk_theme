@@ -1,6 +1,6 @@
 # Personal Theme for revealjs Presentations in Quarto
 
-See a live example [here](https://rawcdn.githack.com/pjkreutzer/pjk_theme_revealjs/92693f422b1d983071fd827f76b9dd9e5258ba7b/template.html)
+See a live example [here](https://rawcdn.githack.com/pjkreutzer/pjk_theme_revealjs/92693f422b1d983071fd827f76b9dd9e5258ba7b/template.html).
 
 ## Installing
 
