@@ -1,7 +1,6 @@
 ---
 title: Untitled
-format:
-  pjk_theme_revealjs-revealjs: default
+format: pjk_theme-revealjs
 author: Jonas Kreutzer
 date: last-modified
 ---
