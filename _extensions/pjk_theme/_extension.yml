@@ -7,4 +7,4 @@ contributes:
     revealjs:
       theme: [defaults.scss, revealjs.scss]
     html:
-      theme: [defaults.scss, html.scss]
+      theme: [litera, defaults.scss, html.scss]
