@@ -6,7 +6,7 @@ See a live example [here](https://rawcdn.githack.com/pjkreutzer/pjk_theme_reveal
 
 
 ```bash
-quarto use template pjkreutzer/pjk_theme_revealjs
+quarto use template pjkreutzer/pjk_theme
 ```
 
 This will install the extension and create a template for a presentation.
@@ -14,17 +14,19 @@ This will install the extension and create a template for a presentation.
 To use the template with an existing presentation use
 
 ```bash
-quarto install extension pjkreutzer/pjk_theme_revealjs
+quarto install extension pjkreutzer/pjk_theme
 ```
 
-## Using
+## Usage
+
+### Websites
 
 ```yaml
 ---
 title: A title
 subtitle: A subtitle
 format:
-  pjk_theme_revealjs: default
+  pjk_theme-html: default
 author:
   - name: Jonas Kreutzer
     orcid: 0000-0000-0000-0000
@@ -34,11 +36,13 @@ date: last-modified
 ---
 
 ```
+
+### Presentations
 Further extensions can be listed underneath the theme extension.
 
 ```bash
 format:
-  pjk_theme_revealjs:
+  pjk_theme-revealjs:
     attribution: true
 ```
 
