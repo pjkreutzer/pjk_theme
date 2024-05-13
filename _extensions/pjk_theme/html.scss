@@ -99,12 +99,13 @@ div.quarto-about-trestles .about-entity .about-link:hover {
 
 // sidebars
 
+.sidebar,
 .margin-sidebar,
 .toc-active .header-section-number {
     color: $gray-400;
 
     & a {
-        color: $primary !important;
+        color: inherit !important;
 
         &:hover {
             color: $primary !important;
