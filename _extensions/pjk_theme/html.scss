@@ -9,18 +9,6 @@
 }
 
 
-// colors
-
-@each $color-name in $color-names {
-    .text-#{$color-name} {
-        color: map-get($theme-colors, $color-name);
-    }
-
-    .bg-#{$color-name} {
-        background-color: map-get($theme-colors, $color-name);
-    }
-}
-
 // acceptable rem values with 1 rem = 16 px
 // 0.25, 0.5, 0.75, 1, 1.5, 2, 4, 6, 8, 12, 16, 24, 32, 40, 48
 
@@ -46,16 +34,6 @@ h6 {
     font-weight: 400;
     color: inherit, $dark;
     border-bottom: none;
-}
-
-a {
-    position: relative;
-    color: inherit;
-}
-
-a:hover {
-    color: $primary;
-    text-decoration: underline;
 }
 
 div.quarto-about-trestles .about-entity .about-link:hover {
