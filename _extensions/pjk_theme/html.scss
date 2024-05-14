@@ -53,28 +53,9 @@ a {
     color: inherit;
 }
 
-a::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 4px;
-    border-radius: 4px;
-    background-color: $primary;
-    bottom: 0;
-    left: 0;
-    transform-origin: right;
-    transform: scaleX(0);
-    transition: transform .3s ease-in-out;
-}
-
-a:hover::before {
-    transform-origin: left;
-    transform: scaleX(1);
-}
-
 a:hover {
     color: $primary;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 div.quarto-about-trestles .about-entity .about-link:hover {
@@ -99,29 +80,13 @@ div.quarto-about-trestles .about-entity .about-link:hover {
 
 // sidebars
 
-.sidebar,
-.margin-sidebar,
-.toc-active .header-section-number {
-    color: $gray-400;
-
-    & a {
-        color: inherit !important;
-
-        &:hover {
-            color: $primary !important;
-            text-decoration: underline;
-            background-color: none !important;
-            // todo fix navbar colors
-        }
-    }
+.sidebar-item-text .menu-text,
+.margin-sidebar {
+    color: $gray-800; 
 }
 
-@media (min-width: 992px) {
-
-    .sidebar-menu-container a,
-    .sidebar-item-container .chapter-number {
-        color: $gray-400;
-    }
+.sidebar-item-text .margin-sidebar:hover, .menu-text:hover {
+    color: $primary;
 }
 
 // buttons
@@ -129,6 +94,22 @@ div.quarto-about-trestles .about-entity .about-link:hover {
 .btn {
     border-radius: 5px;
 }
+
+.btn-primary {
+    background-color: $primary;
+    color: $white;
+    border-color: $primary;
+    &:hover {
+        background-color: $dark-accent;
+        border-color: $dark-accent;
+        color: $white;
+    }
+}
+.downloadthis:hover {
+    transition: 0.2s;
+    filter: none !important;
+  }
+
 
 // responsive iframe
 .container {
