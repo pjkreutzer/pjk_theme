@@ -1,0 +1,61 @@
+meta:
+  name: pjk_theme
+  version: 1.0.0
+
+color:
+  palette:
+    white: "#ffffff"
+    royal-blue-50: hsl(219, 88%, 97%)
+    royal-blue-100: hsl(221, 78%, 93%)
+    royal-blue-200: hsl(218, 82%, 87%)
+    royal-blue-300: hsl(218, 82%, 78%)
+    royal-blue-400: hsl(219, 80%, 68%)
+    royal-blue-500: hsl(223, 78%, 60%)
+    royal-blue-600: hsl(227, 71%, 55%)
+    royal-blue-700: hsl(231, 65%, 48%)
+    royal-blue-800: hsl(231, 61%, 40%)
+    royal-blue-900: hsl(230, 55%, 33%)
+    royal-blue-950: hsl(232, 50%, 21%)
+    dark-blue: royal-blue-950
+    success: hsl(152, 37%, 46%)
+    warning: hsl(36, 54%, 51%)
+    danger: hsl(4, 90%, 58%)
+    gray-100: hsl(210, 17%, 98%)
+    gray-200: hsl(210, 16%, 93%)
+    gray-300: hsl(0, 0%, 87%)
+    gray-400: hsl(210, 14%, 83%)
+    gray-500: hsl(210, 11%, 71%)
+    gray-600: hsl(210, 7%, 56%)
+    gray-700: hsl(210, 9%, 31%)
+    gray-800: hsl(210, 10%, 23%)
+    gray-900: hsl(210, 11%, 15%)
+
+    default: gray-500
+    light-accent: royal-blue-200
+    medium-accent: royal-blue-500
+    dark-accent: royal-blue-800
+    dark-background: dark-blue
+    dark-foreground: white
+
+  background: white
+  foreground: dark-blue
+  primary: royal-blue-400
+  success: success
+  warning: warning
+  danger: danger
+
+typography:
+  fonts:
+  - family: Atkinson Hyperlegible
+    source: google
+  - family: Space Mono
+    source: google
+  - family: Inter
+    source: google
+  base: Atkinson Hyperlegible
+  monospace:
+    family: Space Mono
+    color: dark-blue
+
+  link:
+    color: primary

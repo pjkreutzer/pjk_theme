@@ -1,6 +1,8 @@
 ---
 title: Untitled
-format: pjk_theme-html
+format: 
+  html:
+    theme: [brand]
 author: Jonas Kreutzer
 date: last-modified
 ---
