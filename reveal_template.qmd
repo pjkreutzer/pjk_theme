@@ -1,46 +1,67 @@
 ---
-title: Untitled
-format: 
-  revealjs:
-    theme: [brand, _extensions/pjk_theme/revealjs.scss]
+title: Presentation Title
+subtitle: A clean subtitle for context
+format:
+  pjk_theme-revealjs:
+    center: true
 author: Jonas Kreutzer
 date: last-modified
 ---
 
 ## Introduction
 
-*TODO* Create an example file that demonstrates the formatting and features of your format.
+This template demonstrates the **pjk_theme** for RevealJS presentations.
 
-## More Information
+Designed for clarity and consistency when presenting.
 
-You can learn more about controlling the appearance of RevealJS output here: <https://quarto.org/docs/presentations/revealjs/>
+## Text & Emphasis
 
-# Dark BG Title {.has-dark-background} 
+Regular text for the body of your slides.
 
-# Inverted {.inverted}
+[Highlighted point]{.text-emphasis} draws attention.
 
-## Alerts
+Use `.font-mono` for `inline code` or [technical terms]{.font-mono}.
 
-[Alert]{.text-emphasis}
+## Blockquote
 
-## `Some header`
+> Research is what I'm doing when I don't know what I'm doing.
+>
+> --- Wernher von Braun
 
-some text
-
-`some mono text`
-
-Megatypos
-
-`Megatypos`
-
-
-an example with code, even if I never use it 
+## Code
 
 ```python
-
-def some_func(x):
-  return x
-
+def greet(name: str) -> str:
+    return f"Hello, {name}!"
 ```
 
-Some source ([2023](2023))
+## Tables {.smaller}
+
+| Method | Precision | Recall | F1 |
+|--------|-----------|--------|----|
+| Baseline | 0.72 | 0.68 | 0.70 |
+| Proposed | **0.89** | **0.85** | **0.87** |
+
+: Model comparison {.small}
+
+# Section Break {.has-dark-background}
+
+## Citations
+
+Results are consistent with prior work.
+
+[Source: Author et al. (2024)]{.slide-cite}
+
+## Utility Classes
+
+::: {.v-center-container}
+[Centered content]{.text-emphasis} using `.v-center-container`
+:::
+
+## Links & Resources
+
+Learn more about [Quarto presentations](https://quarto.org/docs/presentations/revealjs/).
+
+::: {.right}
+Right-aligned text with `.right`
+:::

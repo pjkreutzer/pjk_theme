@@ -2,12 +2,11 @@
 
 /*-- scss:rules --*/
 
-// quarto 
+// quarto
 
 .quarto-title-meta-heading {
     color: $default;
 }
-
 
 // acceptable rem values with 1 rem = 16 px
 // 0.25, 0.5, 0.75, 1, 1.5, 2, 4, 6, 8, 12, 16, 24, 32, 40, 48
@@ -18,11 +17,8 @@ body {
 }
 
 p {
-    font-family: inherit;
-    line-height: calc(150% + (0.0025vw * (100 - 30)));
-    /* calculate line height */
+    line-height: 1.6;
 }
-
 
 h1,
 h2,
@@ -30,14 +26,75 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $font-family-sans-serif;
-    font-weight: 400;
-    color: inherit, $dark;
+    font-family: $font-family-headers;
+    font-weight: 600;
+    color: $dark;
     border-bottom: none;
 }
 
-div.quarto-about-trestles .about-entity .about-link:hover {
+h2 {
+    color: $dark;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1.5px solid $light-accent;
+    display: inline-block;
+}
+
+// sections — alternating backgrounds and spacing
+
+.quarto-about-trestles {
+    margin-bottom: 2rem;
+}
+
+// Quarto auto-generates this ID from the section heading
+#about-section {
+    .about-entity {
+        .about-image {
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 20px rgba($dark, 0.08);
+        }
+    }
+}
+
+// fade-in on scroll
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+a {
+    position: relative;
+    color: inherit;
+    transition: color 0.2s ease;
+}
+
+a:hover {
     color: $primary;
+    text-decoration: underline;
+}
+
+div.quarto-about-trestles .about-entity .about-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, transform 0.2s ease;
+    &:hover {
+        color: $primary;
+        transform: translateY(-1px);
+    }
 }
 
 .date {
@@ -56,27 +113,102 @@ div.quarto-about-trestles .about-entity .about-link:hover {
     text-transform: lowercase;
 }
 
+// listings
+
+.quarto-listing .listing-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $dark;
+    font-family: $font-family-sans-serif;
+}
+
+li.talk-link {
+    display: inline;
+}
+
+.date-location {
+    color: $default;
+    margin-bottom: 0.5rem;
+}
+
+.categories {
+    color: $default;
+    font-size: 0.75rem;
+}
+
+span.category {
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+    margin: 0.1rem;
+    border: 1px solid $default;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+}
+
+// talks
+.talk-entry {
+    padding: 0.25rem 0;
+    border-bottom: 1px solid map-get($theme-colors, "gray-200");
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    p {
+        margin-bottom: 0.15rem;
+    }
+
+    .title {
+        font-weight: 600;
+    }
+
+    .talk-link a {
+        color: $primary;
+        font-size: 0.85rem;
+        &:hover {
+            color: $dark-accent;
+        }
+    }
+}
+
 // navbar
 
 .navbar {
     background-color: $white;
+    box-shadow: 0 1px 3px rgba($dark, 0.06);
+    transition: box-shadow 0.3s ease;
+
+    .navbar-brand {
+        font-family: $font-family-headers;
+        font-weight: 600;
+    }
+
+    .nav-link {
+        font-family: $font-family-headers;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        transition: color 0.2s ease;
+    }
 }
 
 // sidebars
 
 .sidebar-item-text .menu-text,
 .margin-sidebar {
-    color: $gray-800; 
+    color: $gray-800;
 }
 
-.sidebar-item-text .margin-sidebar:hover, .menu-text:hover {
+.sidebar-item-text .margin-sidebar:hover,
+.menu-text:hover {
     color: $primary;
 }
 
 // buttons
 
 .btn {
-    border-radius: 5px;
+    border-radius: 0.3rem;
+    transition: background-color 0.2s ease, color 0.2s ease,
+        border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-primary {
@@ -87,16 +219,19 @@ div.quarto-about-trestles .about-entity .about-link:hover {
         background-color: $dark-accent;
         border-color: $dark-accent;
         color: $white;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba($dark, 0.15);
     }
 }
+
+// override downloadthis extension's default filter
 .downloadthis:hover {
     transition: 0.2s;
     filter: none !important;
-  }
-
+}
 
 // responsive iframe
-.container {
+.responsive-container {
     position: relative;
     width: 100%;
     padding-bottom: 5%;
@@ -110,6 +245,30 @@ div.quarto-about-trestles .about-entity .about-link:hover {
     height: 500px;
 }
 
+// callouts — working papers
+
+.paper-callout {
+    border-top: 1px solid $light-accent;
+    border-right: 1px solid $light-accent;
+    border-bottom: 1px solid $light-accent;
+    border-left: 4px solid $primary;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    color: inherit;
+    border-radius: 0.25rem;
+    background-color: map-get($theme-colors, "royal-blue-50");
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        border-left-color: $dark-accent;
+        box-shadow: 0 2px 12px rgba($dark, 0.06);
+    }
+
+    .callout-header {
+        font-family: $font-family-headers;
+    }
+}
+
 // extras
 
 .empty {
@@ -118,4 +277,9 @@ div.quarto-about-trestles .about-entity .about-link:hover {
     text-stroke: 2px;
     -webkit-text-fill-color: transparent;
     text-fill-color: transparent;
+}
+
+.alert.alert-info {
+    background-color: $primary;
+    color: $dark;
 }

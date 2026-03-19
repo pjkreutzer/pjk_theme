@@ -1,14 +1,27 @@
 /*-- scss:defaults --*/
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-$font-family-sans-serif: "Atkinson Hyperlegible", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-$font-family-headers: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+// Font stacks — brand.yml sets the family, these add system fallbacks
+$font-family-sans-serif:
+    "Instrument Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif !default;
+$font-family-headers:
+    "Instrument Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif !default;
 $font-family-monospace: "Space Mono", monospace !default;
 
 $font-weight-bold: 800;
 $font-weight-normal: 400;
 
-// Colors
+// Custom theme color map — extends beyond what brand.yml provides
 $theme-colors: (
     "white": hsl(0, 0%, 100%),
     "royal-blue-50": hsl(219, 88%, 97%),
@@ -34,69 +47,61 @@ $theme-colors: (
     "gray-700": hsl(210, 9%, 31%),
     "gray-800": hsl(210, 10%, 23%),
     "gray-900": hsl(210, 11%, 15%),
-    "colorblind-blue":#0173b2,
-    "colorblind-orange":#de8f05,
-    "colorblind-green":#029e73,
-    "colorblind-red":#d55e00,
-    "colorblind-purple":#cc78bc,
-    "colorblind-light-orange":#ca9161,
-    "colorblind-pink":#fbafe4,
-    "colorblind-gray":#949494,
-    "colorblind-yellow":#ece133,
-    "colorblind-light-blue":#56b4e9,
+    "colorblind-blue": #0173b2,
+    "colorblind-orange": #de8f05,
+    "colorblind-green": #029e73,
+    "colorblind-red": #d55e00,
+    "colorblind-purple": #cc78bc,
+    "colorblind-light-orange": #ca9161,
+    "colorblind-pink": #fbafe4,
+    "colorblind-gray": #949494,
+    "colorblind-yellow": #ece133,
+    "colorblind-light-blue": #56b4e9
 );
 
 $color-names: map-keys($theme-colors);
 
-$white: map-get($theme-colors, "white");
-$light: map-get($theme-colors, "royal-blue-100");
-$dark: map-get($theme-colors, "royal-blue-950");
-$primary: map-get($theme-colors, "royal-blue-400");
-$secondary: map-get($theme-colors, "royal-blue-600");
-$info: map-get($theme-colors, "info");
-$success: map-get($theme-colors, "success");
-$warning: map-get($theme-colors, "warning");
-$danger: map-get($theme-colors, "danger");
-$light-accent : map-get($theme-colors, "royal-blue-200");
+// Standard Bootstrap colors — use !default so brand.yml values take precedence
+$white: map-get($theme-colors, "white") !default;
+$light: map-get($theme-colors, "royal-blue-100") !default;
+$dark: map-get($theme-colors, "royal-blue-950") !default;
+$primary: map-get($theme-colors, "royal-blue-400") !default;
+$secondary: map-get($theme-colors, "royal-blue-600") !default;
+$info: map-get($theme-colors, "royal-blue-300") !default;
+$success: map-get($theme-colors, "success") !default;
+$warning: map-get($theme-colors, "warning") !default;
+$danger: map-get($theme-colors, "danger") !default;
+
+// Custom accent colors — not provided by brand.yml
+$light-accent: map-get($theme-colors, "royal-blue-200");
 $medium-accent: map-get($theme-colors, "royal-blue-500");
-$dark-accent : map-get($theme-colors, "royal-blue-800");
+$dark-accent: map-get($theme-colors, "royal-blue-800");
 $default: map-get($theme-colors, "gray-500");
+$gray-800: map-get($theme-colors, "gray-800");
 
 $dark-background: $dark-accent;
 $light-background: $light;
 $white-background: $white;
 
-$link-color : $primary !default;
-$code-color : black !default;
+$link-color: $primary !default;
+$code-color: black !default;
 $selection-color: $secondary !default;
-// Default values for callout colors
+
+// Callout colors
 $callout-color-note: $primary !default;
 $callout-color-tip: $success !default;
 $callout-color-important: $danger !default;
 $callout-color-warning: $warning !default;
 
+/*-- scss:rules --*/
 
-// colors
-
-@each $color-name in $color-names {
+// Color utility classes — shared by both html and revealjs formats
+@each $color-name, $color-value in $theme-colors {
     .text-#{$color-name} {
-        color: map-get($theme-colors, $color-name);
+        color: $color-value;
     }
 
     .bg-#{$color-name} {
-        background-color: map-get($theme-colors, $color-name);
+        background-color: $color-value;
     }
-}
-
-/*-- scss:rules --*/
-
-
-a {
-    position: relative;
-    color: inherit;
-}
-
-a:hover {
-    color: $primary;
-    text-decoration: underline;
 }

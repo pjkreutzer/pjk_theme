@@ -1,6 +1,6 @@
 meta:
   name: pjk_theme
-  version: 1.0.0
+  version: 2.0.0
 
 color:
   palette:
@@ -16,7 +16,6 @@ color:
     royal-blue-800: hsl(231, 61%, 40%)
     royal-blue-900: hsl(230, 55%, 33%)
     royal-blue-950: hsl(232, 50%, 21%)
-    dark-blue: royal-blue-950
     success: hsl(152, 37%, 46%)
     warning: hsl(36, 54%, 51%)
     danger: hsl(4, 90%, 58%)
@@ -30,32 +29,32 @@ color:
     gray-800: hsl(210, 10%, 23%)
     gray-900: hsl(210, 11%, 15%)
 
-    default: gray-500
-    light-accent: royal-blue-200
-    medium-accent: royal-blue-500
-    dark-accent: royal-blue-800
-    dark-background: dark-blue
-    dark-foreground: white
-
   background: white
-  foreground: dark-blue
+  foreground: royal-blue-950
   primary: royal-blue-400
+  secondary: royal-blue-600
+  info: royal-blue-300
   success: success
   warning: warning
   danger: danger
+  light: royal-blue-100
+  dark: royal-blue-950
 
 typography:
   fonts:
-  - family: Atkinson Hyperlegible
-    source: google
-  - family: Space Mono
-    source: google
-  - family: Inter
-    source: google
-  base: Atkinson Hyperlegible
+    - family: Instrument Sans
+      source: google
+    - family: Space Mono
+      source: google
+  base:
+    family: Instrument Sans
+    weight: 400
+    line-height: 1.5
+  headings:
+    family: Instrument Sans
+    weight: 600
   monospace:
     family: Space Mono
-    color: dark-blue
-
+    color: royal-blue-950
   link:
     color: primary

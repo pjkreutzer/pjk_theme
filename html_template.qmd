@@ -1,46 +1,43 @@
 ---
-title: Untitled
-format: 
-  html:
-    theme: [brand]
+title: Document Title
+format:
+  pjk_theme-html:
+    toc: true
 author: Jonas Kreutzer
 date: last-modified
 ---
 
 ## Introduction
 
-*TODO* Create an example file that demonstrates the formatting and features of your format.
+This template demonstrates the **pjk_theme** for HTML documents.
 
-## More Information
+## Text & Links
 
-You can learn more about controlling the appearance of RevealJS output here: <https://quarto.org/docs/presentations/revealjs/>
+Regular body text with a [link to Quarto](https://quarto.org).
 
-# Dark BG Title {.has-dark-background} 
+Use `.text-emphasis` for [important text]{.text-emphasis} or `.font-normal` for [lighter weight]{.font-normal}.
 
-# Inverted {.inverted}
-
-## Alerts
-
-[Alert]{.text-emphasis}
-
-## `Some header`
-
-some text
-
-`some mono text`
-
-Megatypos
-
-`Megatypos`
-
-
-an example with code, even if I never use it 
+## Code
 
 ```python
-
-def some_func(x):
-  return x
-
+def greet(name: str) -> str:
+    return f"Hello, {name}!"
 ```
 
-Some source ([2023](2023))
+## Callouts
+
+::: {.callout-note}
+This is a note callout using the theme's primary color.
+:::
+
+::: {.callout-tip}
+This is a tip callout.
+:::
+
+## Buttons
+
+[Download]{.btn .btn-primary}
+
+## Categories
+
+[machine learning]{.category} [NLP]{.category} [research]{.category}
