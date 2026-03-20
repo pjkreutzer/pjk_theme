@@ -1,17 +1,16 @@
-# Personal Theme for revealjs Presentations in Quarto
+# pjk_theme
 
-See a live example [here](https://rawcdn.githack.com/pjkreutzer/pjk_theme_revealjs/92693f422b1d983071fd827f76b9dd9e5258ba7b/template.html).
+A personal Quarto theme for HTML documents and RevealJS presentations.
 
 ## Installing
 
+To start a new project from the template:
 
 ```bash
 quarto use template pjkreutzer/pjk_theme
 ```
 
-This will install the extension and create a template for a presentation.
-
-To use the template with an existing presentation use
+To add the theme to an existing project:
 
 ```bash
 quarto install extension pjkreutzer/pjk_theme
@@ -19,30 +18,48 @@ quarto install extension pjkreutzer/pjk_theme
 
 ## Usage
 
-### Websites
+The extension provides two formats:
+
+| Format | Use with |
+|---|---|
+| `pjk_theme-html` | HTML documents |
+| `pjk_theme-revealjs` | RevealJS presentations |
+
+### HTML Document
 
 ```yaml
 ---
 title: A title
-subtitle: A subtitle
 format:
   pjk_theme-html: default
-author:
-  - name: Jonas Kreutzer
-    orcid: 0000-0000-0000-0000
-    email: alias@email.com
-    affiliations: Your Institution
+author: Jonas Kreutzer
 date: last-modified
 ---
-
 ```
 
-### Presentations
-Further extensions can be listed underneath the theme extension.
+### RevealJS Presentation
 
-```bash
+```yaml
+---
+title: A title
+format:
+  pjk_theme-revealjs: default
+author: Jonas Kreutzer
+date: last-modified
+---
+```
+
+Both formats accept additional options under the format key:
+
+```yaml
+format:
+  pjk_theme-html:
+    toc: true
+```
+
+```yaml
 format:
   pjk_theme-revealjs:
-    attribution: true
+    center: true
 ```
 
